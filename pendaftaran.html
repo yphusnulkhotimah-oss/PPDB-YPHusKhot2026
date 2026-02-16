@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran PPDB - Sekolah YP Husnul Khotimah</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .form-section {
+            padding: 4rem 0;
+            background: #f5f5f5;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #d4af37;
+        }
+
+        .form-header h1 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Tab Navigation */
+        .form-tabs {
+            display: flex;
+            background: #f9f9f9;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .form-tab {
+            flex: 1;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            background: #f9f9f9;
+            color: #666;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .form-tab:hover {
+            background: #f0f0f0;
+            color: var(--primary-color);
+        }
+
+        .form-tab.active {
+            background: white;
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .form-tab i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Form Content */
+        .form-content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-content h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: #f44336;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .optional-text {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 0.3rem;
+        }
+
+        /* File Upload */
+        .file-upload {
+            position: relative;
+            border: 2px dashed var(--primary-color);
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(27, 94, 32, 0.02);
+        }
+
+        .file-upload:hover {
+            border-color: var(--secondary-color);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .file-upload p {
+            color: #666;
+            margin: 0;
+        }
+
+        .file-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .file-item {
+            background: #f0f0f0;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .file-item i {
+            color: var(--primary-color);
+        }
+
+        .file-item button {
+            background: none;
+            border: none;
+            color: #f44336;
+            cursor: pointer;
+            padding: 0;
+            font-size: 1rem;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f0f0f0;
+            justify-content: space-between;
+        }
+
+        .form-actions button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-prev {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-prev:hover:not(:disabled) {
+            background: #d0d0d0;
+        }
+
+        .btn-prev:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2e7d32 100%);
+            color: white;
+            margin-left: auto;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 94, 32, 0.4);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #b8961f 100%);
+            color: var(--primary-color);
+            font-weight: 700;
+            width: 100%;
+            padding: 15px;
+            margin-left: 0;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            display: none;
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            color: #2e7d32;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .success-message.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-message {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            color: #c62828;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-tabs {
+                overflow-x: auto;
+            }
+
+            .form-tab {
+                min-width: 120px;
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+
+            .form-tab i {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .form-content {
+                padding: 1.5rem;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-next {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <img src="logo/logo yayasan.jpg" alt="Logo PPDB" class="logo-img">
+                    <span>PPDB YP Husnul Khotimah</span>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#jenjang">Jenjang & Jalur</a></li>
+                        <li><a href="index.html#info">Informasi</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Form Header -->
+    <section class="form-header">
+        <div class="container">
+            <h1>Formulir Pendaftaran Peserta Didik Baru</h1>
+            <p>Tahun Ajaran 2026/2027 - Isi data dengan lengkap dan benar</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 20%;"></div>
+                </div>
+
+                <!-- Form Tabs -->
+                <div class="form-tabs">
+                    <div class="form-tab active" data-tab="1">
+                        <i class="fas fa-user"></i>
+                        <span>Data Calon</span>
+                    </div>
+                    <div class="form-tab" data-tab="2">
+                        <i class="fas fa-users"></i>
+                        <span>Data Orang Tua</span>
+                    </div>
+                    <div class="form-tab" data-tab="3">
+                        <i class="fas fa-person"></i>
+                        <span>Data Wali</span>
+                    </div>
+                    <div class="form-tab" data-tab="4">
+                        <i class="fas fa-chart-area"></i>
+                        <span>Karakteristik</span>
+                    </div>
+                    <div class="form-tab" data-tab="5">
+                        <i class="fas fa-file-upload"></i>
+                        <span>Dokumen</span>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h2>Pendaftaran Berhasil!</h2>
+                    <p>Data Anda telah berhasil dikirim. Silahkan cek email untuk konfirmasi lebih lanjut.</p>
+                </div>
+
+                <form id="ppdbForm" class="ppdb-form">
+                    <!-- TAB 1: Data Calon Peserta Didik -->
+                    <div class="form-content active" data-tab="1">
+                        <h2><i class="fas fa-user-circle"></i> Data Calon Peserta Didik</h2>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Nama Lengkap <span class="required">*</span></label>
+                                <input type="text" name="namaLengkap" placeholder="Masukkan nama lengkap sesuai akta" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>NIK (Nomor Induk Kependudukan) <span class="required">*</span></label>
+                                <input type="text" name="nik" placeholder="16 digit NIK" pattern="[0-9]{16}" maxlength="16" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Tempat Lahir <span class="required">*</span></label>
+                                <input type="text" name="tempatLahir" placeholder="Kota/Kabupaten" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tanggal Lahir <span class="required">*</span></label>
+                                <input type="date" name="tanggalLahir" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Kelamin <span class="required">*</span></label>
+                                <select name="jenisKelamin" required>
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Agama <span class="required">*</span></label>
+                                <select name="agama" required>
+                                    <option value="">Pilih Agama</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Katolik">Katolik</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Buddha">Buddha</option>
+                                    <option value="Konghucu">Konghucu</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Anak ke berapa <span class="required">*</span></label>
+                                <input type="number" name="anakKeBerapa" min="1" placeholder="1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Alamat <span class="required">*</span></label>
+                                <textarea name="alamat" placeholder="Jalan, No, RT/RW, Desa, Kecamatan, Kab/Kota" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Asal Sekolah <span class="required">*</span></label>
+                                <input type="text" name="asalSekolah" placeholder="Nama sekolah asal" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor HP <span class="required">*</span></label>
+                                <input type="tel" name="noHpCalonPD" placeholder="08xxxxxxxxxx" pattern="[0-9]{10,13}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Data Orang Tua -->
+                    <div class="form-content" data-tab="2">
+                        <h2><i class="fas fa-family"></i> Data Orang Tua</h2>
+                        <div style="background: #e3f2fd; border-left: 4px solid #1b5e20; padding: 1rem; margin-bottom: 1.5rem; border-radius: 5px;">
+                            <p style="color: #1b5e20; margin: 0; font-weight: 600;">
+                                <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i> Catatan penting:
+                            </p>
+                            <p style="color: #333; margin: 0.5rem 0 0 0; font-size: 0.95rem;">
+                                Jika salah satu orang tua sudah meninggal:
+                            </p>
+                            <ul style="color: #333; margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem;">
+                                <li>Isi kolom "Pekerjaan" dengan: <strong>Sudah Meninggal</strong></li>
+                                <li>Isi kolom "Nomor HP" dengan: <strong>0000</strong></li>
+                            </ul>
+                        </div>
+
+                        <h3 style="color: var(--primary-color); margin-top: 1.5rem; margin-bottom: 1rem;">Ayah</h3>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Nama Ayah <span class="required">*</span></label>
+                                <input type="text" name="namaAyah" placeholder="Nama ayah kandung" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tahun Lahir Ayah <span class="required">*</span></label>
+                                <input type="number" name="tahunLahirAyah" placeholder="YYYY" min="1940" max="2010" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Pekerjaan Ayah <span class="required">*</span></label>
+                                <input type="text" name="pekerjaanAyah" placeholder="Profesi/Pekerjaan atau 'Sudah Meninggal'" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Alamat Ayah <span class="required">*</span></label>
+                                <textarea name="alamatAyah" placeholder="Alamat lengkap" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nomor HP Ayah <span class="required">*</span></label>
+                                <input type="tel" name="noHpAyah" placeholder="08xxxxxxxxxx atau '0000' jika meninggal" pattern="[0-9]{4,13}" required>
+                                <span class="optional-text">Contoh: 08xxxxxxxxxx atau 0000</span>
+                            </div>
+                        </div>
+
+                        <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Ibu</h3>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Nama Ibu <span class="required">*</span></label>
+                                <input type="text" name="namaIbu" placeholder="Nama ibu kandung" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tahun Lahir Ibu <span class="required">*</span></label>
+                                <input type="number" name="tahunLahirIbu" placeholder="YYYY" min="1940" max="2010" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Pekerjaan Ibu <span class="required">*</span></label>
+                                <input type="text" name="pekerjaanIbu" placeholder="Profesi/Pekerjaan atau 'Sudah Meninggal'" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Alamat Ibu <span class="required">*</span></label>
+                                <textarea name="alamatIbu" placeholder="Alamat lengkap" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nomor HP Ibu <span class="required">*</span></label>
+                                <input type="tel" name="noHpIbu" placeholder="08xxxxxxxxxx atau '0000' jika meninggal" pattern="[0-9]{4,13}" required>
+                                <span class="optional-text">Contoh: 08xxxxxxxxxx atau 0000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Data Wali -->
+                    <div class="form-content" data-tab="3">
+                        <h2><i class="fas fa-person-circle-plus"></i> Data Wali</h2>
+                        <p style="color: #666; margin-bottom: 1.5rem;">
+                            <i class="fas fa-info-circle"></i> Jika calon peserta didik masih ada orang tua, bagian ini tidak wajib diisi.
+                        </p>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Nama Wali</label>
+                                <input type="text" name="namaWali" placeholder="Nama wali (jika ada)">
+                                <span class="optional-text">Opsional - Isi hanya jika tidak ada orang tua</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Pekerjaan Wali</label>
+                                <input type="text" name="pekerjaanWali" placeholder="Profesi/Pekerjaan">
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Alamat Wali</label>
+                                <textarea name="alamatWali" placeholder="Alamat lengkap"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nomor HP Wali</label>
+                                <input type="tel" name="noHpWali" placeholder="08xxxxxxxxxx atau '0000'" pattern="[0-9]{4,13}">
+                                <span class="optional-text">Opsional - Contoh: 08xxxxxxxxxx atau 0000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: Data Karakteristik Siswa -->
+                    <div class="form-content" data-tab="4">
+                        <h2><i class="fas fa-chart-area"></i> Data Karakteristik Siswa</h2>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tinggi Badan (cm) <span class="required">*</span></label>
+                                <input type="number" name="tinggiBadan" placeholder="Contoh: 150" min="50" max="250" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Berat Badan (kg) <span class="required">*</span></label>
+                                <input type="number" name="beratBadan" placeholder="Contoh: 45" min="10" max="200" step="0.1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Jarak ke Sekolah (km) <span class="required">*</span></label>
+                                <input type="number" name="jarakSekolah" placeholder="Contoh: 5" min="0" max="100" step="0.5" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Berapa Bersaudara <span class="required">*</span></label>
+                                <input type="number" name="berapaBersaudara" placeholder="Contoh: 2" min="1" max="20" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ukuran Baju <span class="required">*</span></label>
+                                <select name="ukuranBaju" required>
+                                    <option value="">Pilih Ukuran</option>
+                                    <option value="XS">Extra Small (XS)</option>
+                                    <option value="S">Small (S)</option>
+                                    <option value="M">Medium (M)</option>
+                                    <option value="L">Large (L)</option>
+                                    <option value="XL">Extra Large (XL)</option>
+                                    <option value="XXL">2X Large (XXL)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: Upload Dokumen -->
+                    <div class="form-content" data-tab="5">
+                        <h2><i class="fas fa-file-upload"></i> Upload Dokumen</h2>
+                        <p style="color: #666; margin-bottom: 1.5rem;">
+                            Format: PDF, JPG, PNG (Max 5MB per dokumen)
+                        </p>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Akta Kelahiran / Surat Keterangan Kelahiran <span class="required">*</span></label>
+                                <div class="file-upload" onclick="document.getElementById('fileAkta').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload atau drag & drop</p>
+                                </div>
+                                <input type="file" id="fileAkta" name="fileAkta" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <div class="file-list" id="listFileAkta"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Kartu Keluarga <span class="required">*</span></label>
+                                <div class="file-upload" onclick="document.getElementById('fileKK').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload atau drag & drop</p>
+                                </div>
+                                <input type="file" id="fileKK" name="fileKK" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <div class="file-list" id="listFileKK"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>KTP Orang Tua <span class="required">*</span></label>
+                                <div class="file-upload" onclick="document.getElementById('fileKTP').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload atau drag & drop</p>
+                                </div>
+                                <input type="file" id="fileKTP" name="fileKTP" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <div class="file-list" id="listFileKTP"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Foto Siswa (3x4) <span class="required">*</span></label>
+                                <div class="file-upload" onclick="document.getElementById('fileFoto').click()">
+                                    <i class="fas fa-camera"></i>
+                                    <p>Klik untuk upload atau drag & drop</p>
+                                </div>
+                                <input type="file" id="fileFoto" name="fileFoto" accept=".jpg,.jpeg,.png" required>
+                                <div class="file-list" id="listFileFoto"></div>
+                                <span class="optional-text">Format: JPG atau PNG, ukuran 3x4 cm, background merah</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Ijazah / Surat Keterangan Lulus</label>
+                                <div class="file-upload" onclick="document.getElementById('fileIjazah').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload atau drag & drop</p>
+                                </div>
+                                <input type="file" id="fileIjazah" name="fileIjazah" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="file-list" id="listFileIjazah"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label>Dokumen Pendukung Lainnya (jika ada)</label>
+                                <div class="file-upload" onclick="document.getElementById('filePendukung').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload atau drag & drop</p>
+                                </div>
+                                <input type="file" id="filePendukung" name="filePendukung" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="file-list" id="listFilePendukung"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="form-actions-btn btn-prev" id="btnPrev" disabled>
+                            <i class="fas fa-arrow-left"></i> Sebelumnya
+                        </button>
+                        <button type="button" class="form-actions-btn btn-next" id="btnNext" style="margin-left: auto;">
+                            Selanjutnya <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="submit" class="form-actions-btn btn-submit" id="btnSubmit" style="display: none; margin-left: 0;">
+                            <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PPDB YP Husnul Khotimah</h3>
+                    <p>Membuka pintu pendidikan berkualitas untuk generasi masa depan dengan nilai-nilai Islamic yang kuat.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#jenjang">Jenjang & Jalur</a></li>
+                        <li><a href="index.html#info">Informasi</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PPDB YP Husnul Khotimah. All rights reserved. | Design with <i class="fas fa-heart"></i> Islamic Theme</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/pendaftaran.js"></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!-- 
+PPDB Sekolah - Theme Configuration File
+Gunakan file ini sebagai referensi untuk mengkustomisasi website Anda
+Last Updated: 14 Februari 2026
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>PPDB - Tema Configuration</title>
+</head>
+<body>
+    <h1>🎨 PPDB Sekolah - Theme Configuration Guide</h1>
+
+    <section>
+        <h2>1. WARNA TEMA ISLAMIC</h2>
+        <p>Edit di file: <strong>css/style.css</strong> bagian :root</p>
+        
+        <div style="background: #1b5e20; color: white; padding: 20px; margin: 10px 0; border-radius: 5px;">
+            <strong>--primary-color: #1b5e20</strong>
+            <p>Warna hijau (simbol Islam). Gunakan untuk background utama, buttons, dan headers</p>
+        </div>
+
+        <div style="background: #d4af37; color: #333; padding: 20px; margin: 10px 0; border-radius: 5px;">
+            <strong>--secondary-color: #d4af37</strong>
+            <p>Warna emas (elegan dan berkelas). Gunakan untuk accent, borders, dan highlights</p>
+        </div>
+
+        <div style="background: #f57c00; color: white; padding: 20px; margin: 10px 0; border-radius: 5px;">
+            <strong>--accent-color: #f57c00</strong>
+            <p>Warna oranye (aksen tambahan untuk emphasis)</p>
+        </div>
+
+        <h3>Alternatif Warna untuk Customization:</h3>
+        <table border="1" cellpadding="10" style="margin: 20px 0;">
+            <tr>
+                <th>Tema</th>
+                <th>Primary</th>
+                <th>Secondary</th>
+                <th>Accent</th>
+            </tr>
+            <tr>
+                <td>Islamic Green (Default)</td>
+                <td>#1b5e20</td>
+                <td>#d4af37</td>
+                <td>#f57c00</td>
+            </tr>
+            <tr>
+                <td>Navy Blue Islamic</td>
+                <td>#1a237e</td>
+                <td>#ffd700</td>
+                <td>#00838f</td>
+            </tr>
+            <tr>
+                <td>Teal Islamic</td>
+                <td>#00695c</td>
+                <td>#ffb300</td>
+                <td>#00796b</td>
+            </tr>
+            <tr>
+                <td>Purple Islamic</td>
+                <td>#4a148c</td>
+                <td>#daa520</td>
+                <td>#7a1fa2</td>
+            </tr>
+            <tr>
+                <td>Dark Green Modern</td>
+                <td>#0d3818</td>
+                <td>#c9a961</td>
+                <td>#2e7d32</td>
+            </tr>
+        </table>
+
+        <h3>Cara Mengubah Warna:</h3>
+        <ol>
+            <li>Buka file <code>css/style.css</code></li>
+            <li>Cari section <code>:root { --primary-color: ... }</code></li>
+            <li>Ganti kode warna (hex, rgb, atau hsl)</li>
+            <li>Simpan dan refresh browser</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>2. FONT & TYPOGRAPHY</h2>
+        <p>Saat ini menggunakan Google Fonts:</p>
+        <ul>
+            <li><strong>Poppins</strong> - Font utama (body, paragraf)</li>
+            <li><strong>Playfair Display</strong> - Font decorative (headings, judul)</li>
+        </ul>
+
+        <h3>Mengubah Font:</h3>
+        <p>Edit di <code>index.html</code> section head:</p>
+        <pre>&lt;link href="https://fonts.googleapis.com/css2?family=FONT_NAME:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;</pre>
+
+        <h3>Font Alternatif dari Google Fonts:</h3>
+        <ul>
+            <li>Body: Lato, Open Sans, Raleway, Roboto</li>
+            <li>Heading: Merriweather, Crimson Text, GFS Didot, PT Serif</li>
+            <li>Modern: Inter, Montserrat, Nunito, Quicksand</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. SECTIONS & CONTENT</h2>
+
+        <h3>Hero Section</h3>
+        <ul>
+            <li>Background gradient dengan primary color</li>
+            <li>Main title dan subtitle</li>
+            <li>Call-to-action buttons</li>
+            <li>Islamic ornament (Bismillah)</li>
+        </ul>
+
+        <h3>Jenjang Pendidikan</h3>
+        <table border="1" cellpadding="10" style="margin: 20px 0;">
+            <tr>
+                <th>Jenjang</th>
+                <th>Singkatan</th>
+                <th>Jalur</th>
+            </tr>
+            <tr>
+                <td>SD IT Husnul Khotimah</td>
+                <td>MI</td>
+                <td>5 jalur</td>
+            </tr>
+            <tr>
+                <td>SMP IT Husnul Khotimah</td>
+                <td>MTs</td>
+                <td>8 jalur</td>
+            </tr>
+            <tr>
+                <td>SMK IT Husnul Khotimah</td>
+                <td>MA</td>
+                <td>8 jalur</td>
+            </tr>
+        </table>
+
+        <h3>Jalur Pendaftaran Default</h3>
+        <pre>
+MI - SD IT (5 Jalur):
+1. Jalur Prestasi Akademik
+2. Jalur Prestasi Non-Akademik
+3. Jalur KIP/Zonasi
+4. Jalur Anak Guru/Karyawan
+5. Jalur Reguler
+
+MTs - SMP IT & MA - SMK IT (8 Jalur):
+1. Jalur Prestasi Akademik
+2. Jalur Prestasi Non-Akademik
+3. Jalur KIP/Zonasi
+4. Jalur Anak Guru/Karyawan
+5. Jalur Program Khusus
+6. Jalur Olahraga
+7. Jalur Al-Qur'an
+8. Jalur Reguler
+        </pre>
+    </section>
+
+    <section>
+        <h2>4. JADWAL (TIMELINE)</h2>
+        <p>Edit timeline di section "Jadwal Pendaftaran":</p>
+        <pre>
+Pembukaan Pendaftaran: 1 - 15 Mei 2025
+Verifikasi Data: 16 - 30 Mei 2025
+Pengumuman Hasil: 31 Mei 2025
+Registrasi Ulang: 1 - 10 Juni 2025
+        </pre>
+        <p><strong>Sesuaikan dengan jadwal sekolah Anda di index.html</strong></p>
+    </section>
+
+    <section>
+        <h2>5. KONTAK & INFORMASI SEKOLAH</h2>
+        <p>Lokasi di HTML (ubah sesuai data sekolah):</p>
+        <pre>
+Alamat: Jln. Pertigaan Kamurang, Dsn Citajaya III RT.014/RW.005 Ds. Kalibuaya Kec. Telagasari Kab. Karawang - Jawa Barat 41381
+Telepon: (021) 1234-5678 / 0812-3456-7890
+Email: ppdb@sekolah.sch.id / info@sekolah.sch.id
+Jam Operasional: 
+  - Senin-Jumat: 08:00 - 16:00
+  - Sabtu: 08:00 - 12:00
+        </pre>
+    </section>
+
+    <section>
+        <h2>6. MEDIA SOSIAL</h2>
+        <p>Edit footer untuk menambah social media links:</p>
+        <table border="1" cellpadding="10" style="margin: 20px 0;">
+            <tr>
+                <th>Platform</th>
+                <th>Icon (Font Awesome)</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Facebook</td>
+                <td>fab fa-facebook</td>
+                <td>https://facebook.com/sekolah</td>
+            </tr>
+            <tr>
+                <td>Instagram</td>
+                <td>fab fa-instagram</td>
+                <td>https://instagram.com/sekolah</td>
+            </tr>
+            <tr>
+                <td>YouTube</td>
+                <td>fab fa-youtube</td>
+                <td>https://youtube.com/@sekolah</td>
+            </tr>
+            <tr>
+                <td>Twitter</td>
+                <td>fab fa-twitter</td>
+                <td>https://twitter.com/sekolah</td>
+            </tr>
+            <tr>
+                <td>WhatsApp</td>
+                <td>fab fa-whatsapp</td>
+                <td>https://wa.me/628123456789</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>7. RESPONSIVE BREAKPOINTS</h2>
+        <table border="1" cellpadding="10" style="margin: 20px 0;">
+            <tr>
+                <th>Device</th>
+                <th>Screen Width</th>
+                <th>Media Query</th>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>&lt; 480px</td>
+                <td>@media (max-width: 480px)</td>
+            </tr>
+            <tr>
+                <td>Small Tablet</td>
+                <td>480px - 768px</td>
+                <td>@media (max-width: 768px)</td>
+            </tr>
+            <tr>
+                <td>Tablet</td>
+                <td>768px - 1024px</td>
+                <td>@media (max-width: 1024px)</td>
+            </tr>
+            <tr>
+                <td>Desktop</td>
+                <td>&gt; 1024px</td>
+                <td>@media (min-width: 1025px)</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>8. FORM FIELDS</h2>
+        <p>Form pendaftaran saat ini memiliki field:</p>
+        <ul>
+            <li>Nama Lengkap (required)</li>
+            <li>Email (required, with validation)</li>
+            <li>Nomor Telepon (required, Indonesia format)</li>
+            <li>Jenjang Pendidikan (required, dropdown)</li>
+            <li>Jalur Pendaftaran (required, dynamic dropdown)</li>
+        </ul>
+
+        <h3>Menambah Field Baru:</h3>
+        <ol>
+            <li>Tambah input di HTML</li>
+            <li>Tambah validation di script.js</li>
+            <li>Test form submission</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>9. ICONS</h2>
+        <p>Website menggunakan Font Awesome 6.4.0</p>
+        <p>Icon yang digunakan:</p>
+        <ul>
+            <li>fas fa-school - Ikon sekolah</li>
+            <li>fas fa-book - Ikon buku</li>
+            <li>fas fa-graduation-cap - Ikon kelulusan</li>
+            <li>fas fa-university - Ikon universitas</li>
+            <li>fas fa-calendar - Ikon kalender</li>
+            <li>fas fa-file-upload - Ikon upload</li>
+            <li>fas fa-check-circle - Ikon checklist</li>
+            <li>fas fa-door-open - Ikon pintu</li>
+            <li>fas fa-clipboard-list - Ikon daftar</li>
+            <li>fas fa-user-edit - Ikon edit user</li>
+            <li>fas fa-question-circle - Ikon tanya</li>
+        </ul>
+        <p>Cari icon lain di: <strong>https://fontawesome.com/icons</strong></p>
+    </section>
+
+    <section>
+        <h2>10. CSS ANIMATIONS</h2>
+        <p>Animasi yang tersedia:</p>
+        <ul>
+            <li><strong>fadeInUp</strong> - Fade dan naik</li>
+            <li><strong>slideInLeft</strong> - Slide dari kiri</li>
+            <li><strong>slideInRight</strong> - Slide dari kanan</li>
+            <li><strong>heartbeat</strong> - Detak jantung (footer icon)</li>
+            <li><strong>Scale on hover</strong> - Perubah ukuran saat hover</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>11. JAVASCRIPT FUNCTIONS</h2>
+        <p>Utility functions yang tersedia di window.PPDB:</p>
+        <pre>
+// Format nomor telepon
+PPDB.formatPhoneNumber('08123456789')
+
+// Validasi nomor telepon Indonesia
+PPDB.isValidIndonesianPhone('08123456789')
+
+// Animate counter (untuk statistik)
+PPDB.animateCounter(element, target, duration)
+        </pre>
+    </section>
+
+    <section>
+        <h2>12. DEPLOYMENT CHECKLIST</h2>
+        <ul>
+            <li>☐ Update nama sekolah</li>
+            <li>☐ Update alamat dan kontak</li>
+            <li>☐ Update jadwal pendaftaran</li>
+            <li>☐ Update jalur & jenjang</li>
+            <li>☐ Add logo sekolah</li>
+            <li>☐ Add foto sekolah</li>
+            <li>☐ Update social media links</li>
+            <li>☐ Test semua form</li>
+            <li>☐ Test responsif di mobile</li>
+            <li>☐ Test di berbagai browser</li>
+            <li>☐ Optimize images</li>
+            <li>☐ Add HTTPS certificate</li>
+            <li>☐ Setup email notifications (Optional)</li>
+            <li>☐ Add Google Analytics (Optional)</li>
+            <li>☐ Submit sitemap ke Google Search Console</li>
+        </ul>
+    </section>
+
+    <hr>
+    <p style="text-align: center; color: #999;">
+        <strong>PPDB Sekolah - Islamic Theme</strong><br>
+        Dibuat dengan ❤️ untuk pendidikan berkualitas<br>
+        Last Updated: 14 Februari 2026
+    </p>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persyaratan Pendaftaran - PPDB Sekolah</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .detail-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        .detail-header {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+            border-bottom: 4px solid #d4af37;
+        }
+        .detail-header h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        .detail-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .requirement-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .requirement-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #d4af37;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        .requirement-item h3 {
+            color: #1b5e20;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .requirement-item i {
+            color: #d4af37;
+            font-size: 1.3rem;
+        }
+        .requirement-item ul {
+            list-style: none;
+        }
+        .requirement-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+        .requirement-item li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-button a:hover {
+            color: #d4af37;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <img src="logo/logo yayasan.jpg" alt="Logo PPDB" class="logo-img">
+                    <span>PPDB YP Husnul Khotimah</span>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#jenjang">Jenjang & Jalur</a></li>
+                        <li><a href="index.html#info">Informasi</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detail Header -->
+    <section class="detail-header">
+        <div class="container">
+            <h1>Persyaratan Pendaftaran</h1>
+            <p>Penuhi semua persyaratan berikut untuk memastikan proses pendaftaran yang lancar</p>
+        </div>
+    </section>
+
+    <!-- Detail Content -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="back-button">
+                <a href="index.html#info"><i class="fas fa-arrow-left"></i> Kembali ke Informasi</a>
+            </div>
+
+            <h2 class="section-title">Dokumen yang Diperlukan</h2>
+
+            <div class="requirement-list">
+                <!-- SD IT Requirements -->
+                <div class="requirement-item">
+                    <h3>
+                        <i class="fas fa-book"></i>
+                        SD IT Husnul Khotimah (SD)
+                    </h3>
+                    <ul>
+                        <li>Fotokopi Akta Kelahiran </li>
+                        <li>Fotokopi Kartu Keluarga</li>
+                        <li>Fotokopi KTP Orang Tua</li>
+                        <li>Ijazah TK/PAUD Sederajat</li>
+                        <li>Pas Foto 3x4 (background merah)</li>
+                   </ul>
+                </div>
+
+                <!-- SMP IT Requirements -->
+                <div class="requirement-item">
+                    <h3>
+                        <i class="fas fa-graduation-cap"></i>
+                        SMP IT Husnul Khotimah (SMP)
+                    </h3>
+                    <ul>
+                        <li>Fotokopi Akta Kelahiran</li>
+                        <li>Fotokopi Kartu Keluarga</li>
+                        <li>Fotokopi KTP Orang Tua</li>
+                        <li>Ijazah SD/MI</li>
+                        <li>Sertifikat/Surat Keterangan Lulus</li>
+                        <li>Pas Foto 3x4 (background merah)</li>
+                    </ul>
+                </div>
+
+                <!-- SMK IT Requirements -->
+                <div class="requirement-item">
+                    <h3>
+                        <i class="fas fa-university"></i>
+                        SMK IT Husnul Khotimah (SMK)
+                    </h3>
+                    <ul>
+                        <li>Fotokopi Akta Kelahiran</li>
+                        <li>Fotokopi Kartu Keluarga</li>
+                        <li>Fotokopi KTP Orang Tua</li>
+                        <li>Ijazah MTs/SMP</li>
+                        <li>Sertifikat/Surat Keterangan Lulus</li>
+                        <li>Pas Foto 3x4 (background merah)</li>
+                        <li>Rapor Semester Terakhir</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div style="margin-top: 3rem; padding: 2rem; background: #f9f9f9; border-radius: 10px; border-left: 5px solid #d4af37;">
+                <h3 style="color: #1b5e20; margin-bottom: 1rem;">
+                    <i class="fas fa-info-circle"></i> Catatan Penting
+                </h3>
+                <ul style="list-style: none; color: #666;">
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Verifikasi Dokumen:</strong> Semua dokumen fotokopi harus disertai dokumen asli untuk verifikasi oleh panitia PPDB.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Upload Dokumen:</strong> Semua dokumen harus diunggah dalam format PDF atau JPG dengan jelas dan ukuran maksimal 2MB untuk verifikasi oleh panitia PPDB.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Batas Waktu:</strong> Dokumen harus diserahkan sebelum batas waktu yang telah ditentukan dalam jadwal pendaftaran.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Kualitas Dokumen:</strong> Fotokopi harus jelas dan terbaca, jangan rusak atau kotor.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Kelengkapan:</strong> Jika dokumen tidak lengkap, data tidak dapat diverifikasi dan aplikasi tidak akan diproses.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Penyimpanan:</strong> Calon peserta didik bertanggung jawab menyimpan bukti serah terima dokumen.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>✓ Informasi Tambahan:</strong> Untuk siswa yang berasal dari luar daerah, mungkin diperlukan dokumen tambahan. Hubungi panitia untuk konfirmasi.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CTA Section -->
+            <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%); border-radius: 10px; color: white;">
+                <h3 style="color: white; margin-bottom: 1rem;">Siap untuk Mendaftar?</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 1rem;">Pastikan semua dokumen telah lengkap sebelum memulai pendaftaran</p>
+                <a href="index.html#daftar" class="btn btn-primary">Mulai Pendaftaran</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PPDB YP Husnul Khotimah</h3>
+                    <p>Membuka pintu pendidikan berkualitas untuk generasi masa depan dengan nilai-nilai Islamic yang kuat.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#jenjang">Jenjang & Jalur</a></li>
+                        <li><a href="index.html#info">Informasi</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Jenjang</h4>
+                    <ul>
+                        <li><a href="index.html#jenjang">SD IT Husnul Khotimah</a></li>
+                        <li><a href="index.html#jenjang">SMP IT Husnul Khotimah</a></li>
+                        <li><a href="index.html#jenjang">SMK IT Husnul Khotimah</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Dokumen</h4>
+                    <ul>
+                        <li><a href="panduan.html">Panduan Pendaftaran</a></li>
+                        <li><a href="persyaratan.html">Persyaratan</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PPDB YP Husnul Khotimah. All rights reserved. | Design with <i class="fas fa-heart"></i> Islamic Theme</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

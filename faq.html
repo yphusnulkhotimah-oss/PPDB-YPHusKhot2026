@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - PPDB Sekolah</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .detail-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        .detail-header {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+            border-bottom: 4px solid #d4af37;
+        }
+        .detail-header h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        .detail-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-button a:hover {
+            color: #d4af37;
+            gap: 15px;
+        }
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-category {
+            margin-bottom: 3rem;
+        }
+        .faq-category-title {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.3rem;
+        }
+        .faq-category-title i {
+            font-size: 1.5rem;
+        }
+        .faq-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            margin-bottom: 0;
+        }
+        .faq-item:last-child {
+            border-radius: 0 0 5px 5px;
+        }
+        .faq-question {
+            padding: 1.5rem;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question:hover {
+            background: #f0f0f0;
+            padding-left: 2rem;
+        }
+        .faq-question-text {
+            color: #1b5e20;
+            font-weight: 600;
+            font-size: 1.05rem;
+            flex: 1;
+        }
+        .faq-toggle {
+            color: #d4af37;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            border-top: 2px solid #f0f0f0;
+        }
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .faq-answer ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .faq-answer li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+        .faq-answer li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .search-box {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            padding-left: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #1b5e20;
+            box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
+        }
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <img src="logo/logo yayasan.jpg" alt="Logo PPDB" class="logo-img">
+                    <span>PPDB YP Husnul Khotimah</span>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#jenjang">Jenjang & Jalur</a></li>
+                        <li><a href="index.html#info">Informasi</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detail Header -->
+    <section class="detail-header">
+        <div class="container">
+            <h1>Frequently Asked Questions (FAQ)</h1>
+            <p>Temukan jawaban atas pertanyaan umum seputar PPDB</p>
+        </div>
+    </section>
+
+    <!-- Detail Content -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="back-button">
+                <a href="index.html#info"><i class="fas fa-arrow-left"></i> Kembali ke Informasi</a>
+            </div>
+
+            <div class="faq-container">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="faqSearch" placeholder="Cari pertanyaan yang ingin dijawab...">
+                </div>
+
+                <!-- General Questions -->
+                <div class="faq-category">
+                    <div class="faq-category-title">
+                        <i class="fas fa-info-circle"></i> Pertanyaan Umum
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Apa itu PPDB?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>PPDB (Penerimaan Peserta Didik Baru) adalah sistem penerimaan siswa baru yang dilakukan setiap tahun untuk merekrut siswa yang akan memasuki jenjang pendidikan berikutnya. Proses ini dilakukan secara transparan dan adil dengan berbagai jalur pendaftaran.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Kapan pendaftaran PPDB dimulai?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pendaftaran PPDB tahun ajaran 2026/2027 dimulai pada tanggal <strong>1 Mei 2026</strong> dan ditutup pada <strong>15 Mei 2026</strong>. Pastikan Anda melakukan pendaftaran sebelum batas waktu berakhir.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Bagaimana cara mendaftar PPDB?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Anda dapat mendaftar melalui portal PPDB online di website kami. Berikut langkah-langkahnya:</p>
+                            <ul>
+                                <li>Buka website PPDB</li>
+                                <li>Isi formulir pendaftaran dengan data yang benar</li>
+                                <li>Pilih jenjang dan jalur pendaftaran</li>
+                                <li>Upload dokumen yang diperlukan</li>
+                                <li>Verifikasi data dan submit</li>
+                                <li>Tunggu konfirmasi dari sekolah</li>
+                            </ul>
+                            <p>Untuk penjelasan lebih detail, kunjungi halaman <a href="panduan.html">Panduan Pendaftaran</a> kami.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Berapa biaya pendaftaran PPDB?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pendaftaran PPDB bersifat <strong>GRATIS (tidak ada biaya apapun)</strong>. Jika ada pihak yang meminta biaya untuk pendaftaran, segera laporkan kepada panitia PPDB di sekolah.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account & Login Questions -->
+                <div class="faq-category">
+                    <div class="faq-category-title">
+                        <i class="fas fa-user"></i> Akun & Login
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Lupa password akun PPDB, bagaimana cara mereset?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Jika Anda lupa password, ikuti langkah di bawah:</p>
+                            <ul>
+                                <li>Klik link "Lupa Password" di halaman login</li>
+                                <li>Masukkan email yang terdaftar di akun PPDB</li>
+                                <li>Cek email Anda untuk link reset password</li>
+                                <li>Klik link di email dan buat password baru</li>
+                                <li>Login dengan password baru Anda</li>
+                            </ul>
+                            <p>Jika tidak menerima email, periksa folder spam atau hubungi panitia PPDB.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Bagaimana cara cek status pendaftaran saya?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Untuk mengecek status pendaftaran:</p>
+                            <ul>
+                                <li>Login ke portal PPDB menggunakan nomor registrasi dan password</li>
+                                <li>Pergi ke menu "Status Pendaftaran" atau "Tracking"</li>
+                                <li>Anda akan melihat informasi status terbaru</li>
+                                <li>Status akan diupdate seiring proses verifikasi</li>
+                            </ul>
+                            <p>Anda juga akan menerima notifikasi via email untuk setiap perubahan status.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document & Requirements -->
+                <div class="faq-category">
+                    <div class="faq-category-title">
+                        <i class="fas fa-file-alt"></i> Dokumen & Persyaratan
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Dokumen apa saja yang dibutuhkan untuk pendaftaran?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Dokumen yang diperlukan tergantung pada jenjang pendidikan dan jalur pendaftaran yang dipilih. Secara umum, dokumen yang diperlukan meliputi:</p>
+                            <ul>
+                                <li>Fotokopi Akta Kelahiran</li>
+                                <li>Fotokopi Kartu Keluarga</li>
+                                <li>Fotokopi KTP Orang Tua</li>
+                                <li>Ijazah/Surat Keterangan Lulus</li>
+                                <li>Pas Foto 3x4</li>
+                                <li>Dokumen lainnya sesuai jalur pendaftaran</li>
+                            </ul>
+                            <p>Untuk daftar lengkap, lihat halaman <a href="persyaratan.html">Persyaratan Pendaftaran</a> kami.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Bagaimana cara upload dokumen?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Berikut cara upload dokumen:</p>
+                            <ul>
+                                <li>Scan atau foto dokumen dengan jelas</li>
+                                <li>Gunakan format PDF atau JPG</li>
+                                <li>Ukuran file maksimal 2 MB</li>
+                                <li>Pastikan konten dokumen terlihat jelas</li>
+                                <li>Klik tombol "Upload" dan pilih file dari komputer Anda</li>
+                                <li>Tunggu sampai upload selesai 100%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Boleh edit data setelah submit pendaftaran?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tergantung pada kebijakan sekolah dan status pendaftaran Anda:</p>
+                            <ul>
+                                <li>Jika masih dalam periode pendaftaran dan belum diverifikasi, Anda bisa edit data</li>
+                                <li>Jika sudah diverifikasi, hubungi panitia PPDB untuk perubahan data</li>
+                                <li>Sebaiknya data diisi dengan benar sejak awal untuk menghindari masalah</li>
+                            </ul>
+                            <p>Hubungi panitia PPDB jika Anda perlu melakukan perubahan data penting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Path Questions -->
+                <div class="faq-category">
+                    <div class="faq-category-title">
+                        <i class="fas fa-road"></i> Jalur Pendaftaran
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Apa perbedaan jalur pendaftaran yang ada?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Setiap jalur pendaftaran memiliki kriteria dan persyaratan berbeda:</p>
+                            <ul>
+                                <li><strong>Prestasi Akademik:</strong> Untuk siswa dengan nilai rapor/ujian yang bagus</li>
+                                <li><strong>Prestasi Non-Akademik:</strong> Untuk siswa dengan keahlian olahraga, seni, atau kompetisi akademik</li>
+                                <li><strong>KIP/Zonasi:</strong> Berdasarkan jarak sekolah/tempat tinggal dan kondisi ekonomi</li>
+                                <li><strong>Anak Guru/Karyawan:</strong> Khusus untuk siswa yang orangtuanya guru atau karyawan sekolah</li>
+                                <li><strong>Al-Qur'an:</strong> Untuk siswa yang menghafal Al-Qur'an (untuk MTs/MA)</li>
+                                <li><strong>Reguler:</strong> Jalur umum untuk siswa yang tidak masuk kategori lain</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Boleh mendaftar lebih dari satu jalur?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kebijakan ini tergantung pada ketentuan PPDB sekolah. Beberapa sekolah mengizinkan pendaftaran di beberapa jalur (mutasi, prioritas dipilih berdasarkan ranking), sementara yang lain hanya memungkinkan satu jalur. Hubungi panitia PPDB untuk mengetahui kebijakan di sekolah kami.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Jalur mana yang paling mudah diterima?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Setiap jalur memiliki tingkat kesulitan berbeda tergantung jumlah pendaftar dan kuota. Pilih jalur yang paling sesuai dengan profil dan kemampuan Anda. Semua jalur memiliki kesempatan yang sama selama memenuhi kriteria masing-masing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results & Next Steps -->
+                <div class="faq-category">
+                    <div class="faq-category-title">
+                        <i class="fas fa-flag-checkered"></i> Hasil & Tindak Lanjut
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Kapan hasil PPDB diumumkan?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pengumuman hasil PPDB dijadwalkan pada <strong>31 Mei 2025</strong>. Hasil akan diumumkan melalui:</p>
+                            <ul>
+                                <li>Portal PPDB online (bisa login dan cek status)</li>
+                                <li>Pengumuman di kantor sekolah</li>
+                                <li>Email notifikasi ke alamat email yang terdaftar</li>
+                                <li>Papan pengumuman sekolah</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Apa yang harus dilakukan jika diterima?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Jika Anda diterima, ikuti langkah berikut:</p>
+                            <ul>
+                                <li>Periksa pengumuman hasil PPDB</li>
+                                <li>Lakukan registrasi ulang sesuai jadwal (1-10 Juni 2025)</li>
+                                <li>Siapkan dokumen asli untuk verifikasi</li>
+                                <li>Bayar biaya pendaftaran/uang pangkal jika ada</li>
+                                <li>Hadiri pengarahan/orientasi siswa baru</li>
+                                <li>Persiapkan perlengkapan sekolah untuk tahun ajaran baru</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span class="faq-question-text">Bagaimana jika tidak diterima?</span>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Jika Anda tidak diterima di jalur yang dipilih:</p>
+                            <ul>
+                                <li>Hubungi panitia PPDB untuk konsultasi persiapan yang lebih baik</li>
+                                <li>Tanyakan tentang kesempatan kedua atau jalur alternatif</li>
+                                <li>Persiapkan diri untuk tahun ajaran berikutnya atau pilih sekolah lain</li>
+                                <li>Jangan berkecil hati, tetap semangat dalam belajar</li>
+                            </ul>
+                            <p>Tim kami siap memberikan konsultasi lebih lanjut jika diperlukan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%); border-radius: 10px; color: white; text-align: center;">
+                    <h3 style="color: white; margin-bottom: 1rem;">Pertanyaan Tidak Terjawab?</h3>
+                    <p style="margin-bottom: 1.5rem;">Hubungi tim PPDB kami untuk bantuan lebih lanjut</p>
+                    <a href="index.html#kontak" class="btn btn-primary">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PPDB YP Husnul Khotimah</h3>
+                    <p>Membuka pintu pendidikan berkualitas untuk generasi masa depan dengan nilai-nilai Islamic yang kuat.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#jenjang">Jenjang & Jalur</a></li>
+                        <li><a href="index.html#info">Informasi</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Jenjang</h4>
+                    <ul>
+                        <li><a href="index.html#jenjang">SD IT Husnul Khotimah</a></li>
+                        <li><a href="index.html#jenjang">SMP IT Husnul Khotimah</a></li>
+                        <li><a href="index.html#jenjang">SMK IT Husnul Khotimah</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Dokumen</h4>
+                    <ul>
+                        <li><a href="panduan.html">Panduan Pendaftaran</a></li>
+                        <li><a href="persyaratan.html">Persyaratan</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PPDB YP Husnul Khotimah. All rights reserved. | Design with <i class="fas fa-heart"></i> Islamic Theme</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // FAQ Accordion Functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                faqItem.classList.toggle('active');
+
+                // Close other FAQ items in the same category
+                const category = question.closest('.faq-category');
+                category.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        const faqSearch = document.getElementById('faqSearch');
+        faqSearch.addEventListener('keyup', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question-text').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm) || searchTerm === '') {
+                    item.style.display = 'block';
+                    if (searchTerm === '') {
+                        item.classList.remove('active');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
